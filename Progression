@@ -1,0 +1,77 @@
+Reason for choosing JAVA:
+Just took CS2030S in NUS CS, I want to make use of my acquired knowledge
+and apply it as extensively and as in depth as possible
+
+
+Skills learnt:
+- Hashing algorithms, SHA256
+- Authorization callback handler using Java servlets
+  - State, prevent CSRF attacks
+  - PKCE, Proof Key for Code Exchanges, Security purposes
+  - Callback URLs
+- Spring Framework
+
+Features:  
+Consume Spotify's Rest API to show user's : 
+
+Top played tracks of all time/past 6 months/past month
+Top played artists of all time/past 6 months/past month
+Show recently played tracks
+Saved albums
+Saved tracks
+Newest released tracks
+Featured playlists
+Current playing track
+Searched tracks/playlist/artist
+
+
+
+1. CodeChallenge, CodeVerify
+The hashing is a one-way compression function to convert inputs of different lengths into a fixed-length output (hash value). cannot reverse hash
+
+https://mkyong.com/java/java-sha-hashing-example/#:~:text=In%20Java%2C%20we%20can%20use,digest(input)%3B
+
+- Generates a random string of characters up to a specified length (Recommended to be from 43 to 128)
+- Generates a hash code of code verifier using SHA-256 hashing algorithm (MessageDigest not thread safe, try not to perform async way)
+- Generates a base64 represenation of a byte[] array
+
+
+2. Request authorization (Current)   "OAuth 2.0 Method"
+
+To request authorization from the user, a GET request must be made to the /authorize endpoint. This request should include the same parameters as the authorization code flow, along with two additional parameters: code_challenge and code_challenge_method:
+
+The app generates a PKCE code challenge and redirects to the Spotify authorization server login page by updating the window.location object value. This allows the user to grant permissions to our application
+
+Please note that the code verifier value is stored locally using the localStorage JavaScript property for use in the next step of the authorization flow.
+
+   2.1 Able to produce the correct link to Spotify authentication page
+       - Scope controls the set of resources and operations that an access token permits
+       - State adds layer of security
+
+   2.2 How to collect the callback link?
+       - Here's a common example of how a callback works
+         Basically a callback URL gives directions to an external system on where to go next.
+         What is at that URL could be anything. It doesn't have to be a static URL.
+
+       - Another use case could be something like OAuth, it's may not be called by the API directly,
+         instead the callback URL will be called by the browser after completing the authencation with the identity
+         provider. Normally after end user key in the username password, the identity service provider will trigger a
+         browser redirect to your "callback" url with the temporary authroization code, e.g.
+
+         https://example.com/callback?code=AUTHORIZATION_CODE
+         Then your application could use this authorization code to request a
+         access token with the identity provider which has a much longer lifetime.
+
+        - Proceeding with Spring + Java Wrapper for Spotify API class found on github (BACKEND)
+        - For accessing web links javascript will be used as the front end (FRONTEND)
+
+        -PKCE; Code verifier must be base64 encoded and not using Java.util.base64 but org.apache.base64 (find out why?)
+
+        -Access token, Refresh token obtained
+
+
+    2.3 Front End, Back End finsihed
+        - Finished the process of logging in into spotify --> now the auth code is obtained --> access token + refresh token obtained --> redirected back to the home page of DJ Lite
+
+    2.4 Securely storing acccess + refresh tokens
+       - Use Spring security?
