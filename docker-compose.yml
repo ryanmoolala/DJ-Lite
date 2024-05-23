@@ -7,6 +7,17 @@ services:
     volumes:
       - ./frontend:/user/src/app
     container_name: frontend
+    depends_on:
+      - server
+
+  server:
+    build: ./backend
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./backend:/target/spotifytool-0.0.1-SNAPSHOT.jar:/app.jar
+    container_name: backend
+
 
 
     
