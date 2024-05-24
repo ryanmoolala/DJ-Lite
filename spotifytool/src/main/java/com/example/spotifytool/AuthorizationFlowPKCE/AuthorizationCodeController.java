@@ -24,9 +24,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin("http://localhost:3000")
 @RequestMapping("/api")
 public class AuthorizationCodeController {   
+
     private static URI redirectUri = SpotifyHttpManager.makeUri(SpotifyDetails.redirectUri);
 
     private static final String securityState = UUID.randomUUID().toString();
@@ -39,6 +40,7 @@ public class AuthorizationCodeController {
             .setRedirectUri(redirectUri)
             .build();
     
+
     /*RETURNS THE LOGIN PAGE URL */
     @GetMapping("/login")  
     public String getUri() throws ParseException {
@@ -51,12 +53,15 @@ public class AuthorizationCodeController {
         return authCodeUriReq.execute().toString();
     }
 
+
     public AuthorizationCodePKCERequest getUri2(String code, String verifier) {
         return spotifyApi.authorizationCodePKCE(code, verifier).build();
     }
 
+
+
     /*RETURNS THE STRING AUTHENTHICATION CODE */
-    @GetMapping("callback")
+    @GetMapping("/callback")
     public String getAuthCode(@RequestParam("code") String authCode, HttpServletResponse response) throws IOException {
         AuthorizationCodeController inst = new AuthorizationCodeController();
         String code = authCode;
@@ -68,7 +73,7 @@ public class AuthorizationCodeController {
             System.out.println("Token type : " + credentials.getTokenType());
             System.out.println("access : " + credentials.getAccessToken());
             System.out.println("refresh : " + credentials.getRefreshToken());
-            System.out.println("Expires in : " + credentials.getExpiresIn());
+            System.out.println("Expires in : " + credentials.getExpiresIn());            
 
             spotifyApi.setAccessToken(credentials.getAccessToken());
             spotifyApi.setRefreshToken(credentials.getRefreshToken());
@@ -78,7 +83,8 @@ public class AuthorizationCodeController {
         }
 
         response.sendRedirect("http://localhost:3000/home");
-        /*NEVER RETURN IMPORTANT INFORMATION TO CLIENT SIDE */
-        return "Success";
+
+        return spotifyApi.getAccessToken();
     }
+    
 }

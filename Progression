@@ -73,5 +73,14 @@ Please note that the code verifier value is stored locally using the localStorag
     2.3 Front End, Back End finsihed
         - Finished the process of logging in into spotify --> now the auth code is obtained --> access token + refresh token obtained --> redirected back to the home page of DJ Lite
 
-    2.4 Securely storing acccess + refresh tokens
-       - Use Spring security?
+    2.4 Dockerised the front end and back end
+        - Now they can be hosted with much ease
+    
+    2.5 Securing the access token
+        - Access Code: this data must be considered secret, and must only be known by your application and the provider. There is no reason to make it know to any other parties, including the user, therefore it should NOT be included in cookies. If you need to store it, keep it locally in your servers (perhaps in your database, referencing your users session ID)
+
+        - Local/session storage https://docs.cyberark.com/identity/Latest/en/Content/Developer/oidc/tokens/token-storage.htm#Localsessionstorage
+        - Cookies https://docs.cyberark.com/identity/Latest/en/Content/Developer/oidc/tokens/token-storage.htm#Cookies
+
+        - Spring session https://www.linkedin.com/pulse/session-management-spring-boot-abid-anjum/
+

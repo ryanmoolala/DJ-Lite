@@ -1,10 +1,13 @@
 import React from "react";
 
 
-const LoginPage = () => {    
+const LoginPage = () => { 
+
     const getUserLogin = () => {
         fetch("http://localhost:8080/api/login")
-        .then(response => response.text())
+        .then(response => 
+            response.text()
+        )
         .then(response => {
             window.location.replace(response);
         })
