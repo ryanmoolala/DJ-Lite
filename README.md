@@ -1,7 +1,7 @@
 DJ Lite
 
 Background: 
-Summer break. I decided to build a web app that focuses on Spotify, that performs data analysis my making use of it's Developer API. Most of already exisitng projects out there use either Python or Javascript to serve the backend hence I thought it will be challenging to use Java instead. This project has served me well as it introduced new concepts related to full stack development which I aim to do in the future.
+Summer break. I decided to build a web app that focuses on Spotify, that performs data analysis by making use of it's Developer API. Most of already exisitng projects out there use either Python or Javascript to serve the backend hence I thought it will be challenging to use Java instead. This project has served me well as it introduced new concepts related to full stack development which I aim to do in the future.
 
 Some noteworthy things I have learnt are OAuth 2.0, Spring framework
  
