@@ -15,6 +15,9 @@ Backend / Server
 - Spring boot 3.2.5
 - Spring MVC
 
+Others:
+- Docker
+  
 Resources:
 - [Spotify Web API](https://developer.spotify.com/documentation/web-api)
 - [Authorization PKCE](https://developer.spotify.com/documentation/web-api/tutorials/code-pkce-flow)
