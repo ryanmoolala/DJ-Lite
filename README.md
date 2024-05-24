@@ -8,15 +8,15 @@ Frontend / Client
 - HTML
 - CSS
 - JavaScript
-- ReactJS (Framework)
+- ReactJS
 
 Backend / Server
 - Java 21
-- Spring boot 3.2.5 (Framework)
+- Spring boot 3.2.5
 - Spring MVC
 
 Resources:
-- [Spotify Web API] (https://developer.spotify.com/documentation/web-api)
-- [Authorization PKCE] (https://developer.spotify.com/documentation/web-api/tutorials/code-pkce-flow)
+- [Spotify Web API](https://developer.spotify.com/documentation/web-api)
+- [Authorization PKCE](https://developer.spotify.com/documentation/web-api/tutorials/code-pkce-flow)
 
 
