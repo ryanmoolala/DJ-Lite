@@ -1,5 +1,5 @@
 import React from "react";
-
+import './styles.css'
 
 const LoginPage = () => { 
 
@@ -15,19 +15,19 @@ const LoginPage = () => {
     }
 
     return (
-        <div>
-            <div style = {{display: "flex", justifyContent: "center"}}>
-                <h1>Welcome to SpotifyTool!</h1>
+        <div class='text text-center flex flex-col items-center h-screen'>
+            <div class='flex flex-col text-9xl w-1/2 font-bold h-1/2 justify-center overflow-hidden relative'>
+                <h1 class=''>DJ Lite</h1>
             </div>
 
-            <div style = {{display: "flex", justifyContent: "center"}}>
+            <div class='mt-3 text-xl'>
                 <h1>
-                    Please login with SpotifyTool to get started!
+                    Discover your music story 
                 </h1>
             </div>
 
-            <div style={{display: "flex", justifyContent: "center", margin: "1rem"}}>
-                <button onClick={getUserLogin}>Sign in</button>
+            <div class='font-bold h-36 w-2/5'>
+                <button class='bg-green-600 text-white py-2 px-4 mt-4 h-16 w-52 rounded-full border transition-transform hover:scale-110' onClick={getUserLogin}>Sign in with Spotify</button>
             </div>
         </div>
     )
