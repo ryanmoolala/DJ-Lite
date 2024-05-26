@@ -3,16 +3,29 @@ package com.example.spotifytool.Controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/api")
 public class TopArtistsController {
     @GetMapping("/user-top-artist")
-    public String getMethodName(@RequestParam String param) {
+    public int[] getTopArtist(HttpSession session) {
         System.out.println("TOP ARTISTS CONTROLLER");
+        System.out.println("Session: " + session.getAttribute("access"));
+        return null;
+    }
+
+    @GetMapping("/user-top-song")
+    public String getTopSong() {
         return new String();
     }
+
+    @GetMapping("/user-top-genre")
+    public String getTopGenre() {
+        return new String();
+    }
+    
+    
 
 
    /*public Artist[] getData() {
