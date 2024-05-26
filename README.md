@@ -30,7 +30,8 @@ Building and running the project:
 To get started, follow these steps:
 
 1. Open the terminal in the project root directory
-2. Build Docker images using 'docker-compose build'
+2. Build Docker images 
+```docker-compose build```
 3. Run docker container using 'docker-compose up'
 4. Now the React application runs on [http://localhost:3000](http://localhost:3000) and the Spring Boot application runs on [http://localhost:8080](http://localhost:8080) 
 
