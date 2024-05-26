@@ -11,11 +11,9 @@ services:
       - server
 
   server:
-    build: ./backend
+    build: ./spotifytool
     ports:
       - "8080:8080"
-    env_file:
-      - ./spotifytool/.env
     volumes:
       - ./spotifytool:/target/spotifytool-0.0.1-SNAPSHOT.jar:/app.jar
     container_name: backend
