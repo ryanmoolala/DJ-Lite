@@ -8,7 +8,7 @@ Some noteworthy things I have learnt are OAuth 2.0, Spring framework, session ma
 Tech Stack:
 Frontend / Client
 - HTML
-- CSS
+- Tailwind CSS
 - JavaScript
 - ReactJS
 
