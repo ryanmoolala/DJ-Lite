@@ -1,18 +1,24 @@
 package com.example.spotifytool.Controller;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.example.spotifytool.Service.TopArtistsService;
+
 import org.springframework.web.bind.annotation.GetMapping;
+
 import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/api")
 public class TopArtistsController {
     @GetMapping("/user-top-artist")
-    public int[] getTopArtist(HttpSession session) {
+    public ResponseEntity<String> getTopArtist(HttpSession session) {
         System.out.println("TOP ARTISTS CONTROLLER");
-        System.out.println("Session: " + session.getAttribute("access"));
-        return null;
+        String data = (String) session.getAttribute("access");
+        TopArtistsService.foo(data);
+        return ResponseEntity.ok(data);
     }
 
     @GetMapping("/user-top-song")
@@ -25,9 +31,6 @@ public class TopArtistsController {
         return new String();
     }
     
-    
-
-
    /*public Artist[] getData() {
 
         System.out.println("top artists...");
