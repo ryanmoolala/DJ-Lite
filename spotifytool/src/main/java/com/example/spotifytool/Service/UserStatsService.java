@@ -6,15 +6,14 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-public class TopSongsService {
-    private static String src = "https://api.spotify.com/v1/me/top/tracks";
-
-    public static String foo(String token, String term, int limit) {
-        String url = String.format("%s?time_range=%s&limit=%d&offset=%d", src, term, limit, 0);
+public class UserStatsService {
+    private static String src = "https://api.spotify.com/v1/me";
+    
+    public static String foo(String token) {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest
         .newBuilder()
-        .uri(URI.create(url))
+        .uri(URI.create(src))
         .header("Authorization", "Bearer " + token)
         .build();
 
@@ -27,5 +26,5 @@ public class TopSongsService {
         client.close();
     }
     return null;
-}
+    }
 }
