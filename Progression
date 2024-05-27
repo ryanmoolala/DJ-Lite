@@ -1,6 +1,15 @@
+Start date: 13th May 2024
+End date: TBC
+
 Reason for choosing JAVA:
 Just took CS2030S in NUS CS, I want to make use of my acquired knowledge
 and apply it as extensively and as in depth as possible
+
+IMPORTANT ISSUES:
+Refreshing token process? 
+Logging down client ID, credientials... during log in process? 
+Fixing code verifier issue (else just fixate on a given verifier)? 
+CSS HTMl and Home page design 
 
 
 Skills learnt:
@@ -10,6 +19,7 @@ Skills learnt:
   - PKCE, Proof Key for Code Exchanges, Security purposes
   - Callback URLs
 - Spring Framework
+- Sessions using jakarta, XSS attacks
 
 Features:  
 Consume Spotify's Rest API to show user's : 
@@ -22,14 +32,12 @@ Saved tracks
 Newest released tracks
 Featured playlists
 Current playing track
-Searched tracks/playlist/artist
+Searched tracks/playlist/artist lengths into a fixed-length output (hash value). cannot reverse hash
 
-
+https://mkyong.com/java/java-sha-hashing-example/#:~:text=In%20Java
 
 1. CodeChallenge, CodeVerify
-The hashing is a one-way compression function to convert inputs of different lengths into a fixed-length output (hash value). cannot reverse hash
-
-https://mkyong.com/java/java-sha-hashing-example/#:~:text=In%20Java%2C%20we%20can%20use,digest(input)%3B
+The hashing is a one-way compression function to convert inputs of different%2C%20we%20can%20use,digest(input)%3B
 
 - Generates a random string of characters up to a specified length (Recommended to be from 43 to 128)
 - Generates a hash code of code verifier using SHA-256 hashing algorithm (MessageDigest not thread safe, try not to perform async way)
@@ -69,18 +77,31 @@ Please note that the code verifier value is stored locally using the localStorag
 
         -Access token, Refresh token obtained
 
-
     2.3 Front End, Back End finsihed
         - Finished the process of logging in into spotify --> now the auth code is obtained --> access token + refresh token obtained --> redirected back to the home page of DJ Lite
 
     2.4 Dockerised the front end and back end
         - Now they can be hosted with much ease
+
+    2.5 Created services and controller folders
+        - Controllers: Serve as endpoints for api fetch calls from ReactJS frontend 
+        - Services: Serve as simple functions that take in required information in their arguments and perform API calls to Spotify database returning it in the form of JSON data 
+        - Separating services and controllers into 2 separate folders make it more clean and reduces cluttering of code into a single folder/file
     
-    2.5 Securing the access token
+    2.6 Securing the access token
         - Access Code: this data must be considered secret, and must only be known by your application and the provider. There is no reason to make it know to any other parties, including the user, therefore it should NOT be included in cookies. If you need to store it, keep it locally in your servers (perhaps in your database, referencing your users session ID)
 
         - Local/session storage https://docs.cyberark.com/identity/Latest/en/Content/Developer/oidc/tokens/token-storage.htm#Localsessionstorage
         - Cookies https://docs.cyberark.com/identity/Latest/en/Content/Developer/oidc/tokens/token-storage.htm#Cookies
 
-        - Spring session https://www.linkedin.com/pulse/session-management-spring-boot-abid-anjum/
+        - Spring session https://www.linkedin.com/pulse/session-management-spring-boot-abid-anjum
 
+        - Settled down with Jakarta's HTTPSession to store useful information, and can be accessed across different folders and files
+
+
+3. Accessing Spotify user information
+    3.1 Process of getting information
+        - front end makes an api call -> the backend receives the matching call to its endpoint via getmapping (Spring) -> uses the access token along with other important parameter settings -> calls the method in the respective service class
+        - gets the response -> can be converted to response body
+
+(2 weeks passed; 27th May)
