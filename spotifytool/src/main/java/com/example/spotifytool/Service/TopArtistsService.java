@@ -9,8 +9,8 @@ import java.net.http.HttpResponse;
 public class TopArtistsService {
     private static String src = "https://api.spotify.com/v1/me/top/artists";
 
-    public static void foo(String token) {
-        String url = String.format("%s?time_range=%s&limit=%d&offset=%d", src, "medium_term", 10, 5);
+    public static String foo(String token, String term, int limit) {
+        String url = String.format("%s?time_range=%s&limit=%d&offset=%d", src, term, limit, 0);
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest
         .newBuilder()
@@ -20,10 +20,12 @@ public class TopArtistsService {
 
     try {
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        System.out.println(response.body());
-
+        return response.body();
     } catch (IOException | InterruptedException e) {
         e.printStackTrace();
+    } finally {
+        client.close();
     }
+    return null;
  }
 }
