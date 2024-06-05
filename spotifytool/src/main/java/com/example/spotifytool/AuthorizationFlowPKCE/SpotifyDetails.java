@@ -10,7 +10,7 @@ public class SpotifyDetails {
             "user-read-playback-state," +
             "user-modify-playback-state," +
             "user-read-currently-playing," +
-            "streaming,app-remote-control," +
+            "streaming, app-remote-control," +
             "playlist-read-collaborative," +
             "playlist-modify-public," +
             "playlist-read-private," +
