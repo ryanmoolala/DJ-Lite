@@ -105,3 +105,34 @@ Please note that the code verifier value is stored locally using the localStorag
         - gets the response -> can be converted to response body
 
 (2 weeks passed; 27th May)
+
+
+
+4. Dashboard design 
+        - Dashboard has 2 sections 
+        A. User profile picture + Current song playing (if any)   --> 2 Components into 1 Component (A)
+
+        B. Relevant stats 
+        
+        Charts of Artists, Tracks, Genres (Short term, medium, long) (First 10 or 50, for genres only show 10)  3Components --> 3 Bigger components --> 1 Big Compoent (B)
+
+
+        OR 
+        
+        Show number data (KIV)
+
+
+        - Has Top section + Music player
+
+5. Additional functionalities 
+
+    5.1 Establish Web socket connection for real time data 
+    5.2 Add Pause/Resume button functionality (DONE)
+    5.3 Add play song option from song chart (DONE)
+    5.4 Add animation (line animation) when song is playing ?
+    5.5 Top genres feature
+    5.6 Login page animation (DONE)
+    
+    Important functions
+    5.5 Login function --> record down credentials etc.
+    5.6 Add refresh token system.
