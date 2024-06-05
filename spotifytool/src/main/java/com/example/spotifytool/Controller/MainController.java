@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.example.spotifytool.Service.FindAlbumService;
 import com.example.spotifytool.Service.FindArtistService;
 import com.example.spotifytool.Service.FindTrackService;
+import com.example.spotifytool.Service.MusicPlayingService;
 import com.example.spotifytool.Service.TopArtistsService;
 import com.example.spotifytool.Service.TopGenresService;
 import com.example.spotifytool.Service.TopSongsService;
@@ -23,17 +24,15 @@ public class MainController {
 
     private String[] timeRange = new String[]{"short_term", "medium_term", "long_term"};
 
-    @GetMapping("/user-top-artist")
-    public ResponseEntity<String> getTopArtist(@RequestParam("term") int term, @RequestParam("limit") int limit, HttpSession session) {
-        System.out.println("TOP ARTISTS CONTROLLER");
-        String data = TopArtistsService.foo((String) session.getAttribute("access"), timeRange[term], 10);
+    @GetMapping("/user-top-artist")   //gets top artists
+    public ResponseEntity<String> getTopArtist(@RequestParam("term") int term, HttpSession session) {
+        String data = TopArtistsService.foo((String) session.getAttribute("access"), timeRange[term], 50);
         return ResponseEntity.ok(data);
     }
 
-    @GetMapping("/user-top-song")
-    public ResponseEntity<String> getTopSong(@RequestParam("term") int term, @RequestParam("limit") int limit, HttpSession session) {
-        System.out.println("TOP SONGS CONTROLLER");
-        String data = TopSongsService.foo((String)session.getAttribute("access"), timeRange[term], 10);
+    @GetMapping("/user-top-song")    //gets top tracks
+    public ResponseEntity<String> getTopSong(@RequestParam("term") int term, HttpSession session) {
+        String data = TopSongsService.foo((String)session.getAttribute("access"), timeRange[term], 50);
         return ResponseEntity.ok(data);
     }
 
@@ -43,26 +42,25 @@ public class MainController {
         return ResponseEntity.ok("null");
     }
 
-    @GetMapping("/user-profile")
+    @GetMapping("/user-profile")   //gets user profile
     public ResponseEntity<String> getUserStats(HttpSession session) {
-        System.out.println("USER PROFILE CONTROLLER");
         String data = UserStatsService.foo((String) session.getAttribute("access"));
         return ResponseEntity.ok(data);
     }
 
-    @GetMapping("/findArtist")
-    public ResponseEntity<String> getArtist(HttpSession session) {
+    @GetMapping("/findArtist")   //finds artist
+    public ResponseEntity<String> getArtist(@RequestParam("id") String id, HttpSession session) {
         String redirectURL = FindArtistService.foo((String) session.getAttribute("access"), "0TnOYISbd1XYRBk9myaseg");
         return ResponseEntity.ok(redirectURL);
     }
 
-    @GetMapping("/findTrack")
+    @GetMapping("/findTrack") //finds a track
     public ResponseEntity<String> getTrack(HttpSession session) {
         String redirectURL = FindTrackService.foo((String) session.getAttribute("access"), "11dFghVXANMlKmJXsNCbNl");
         return ResponseEntity.ok(redirectURL);
     }
-
-    @GetMapping("/findAlbum")
+ 
+    @GetMapping("/findAlbum")  //finds an album
     public ResponseEntity<String> getAlbum(HttpSession session) {
         String redirectURL = FindAlbumService.foo((String) session.getAttribute("access"), "4aawyAB9vmqN3uQ7FjRGTy");
         return ResponseEntity.ok(redirectURL);
