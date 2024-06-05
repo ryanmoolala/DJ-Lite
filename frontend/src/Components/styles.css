@@ -1,4 +1,6 @@
 .text-transparent-outline {
-    color: transparent;
-    -webkit-text-stroke: 2px black; 
-  }
+  color: transparent;
+  -webkit-text-stroke: 2px black;
+}
+
+
