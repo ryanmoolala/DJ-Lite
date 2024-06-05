@@ -77,7 +77,7 @@ public class AuthorizationCodeController {
         } catch (IOException | SpotifyWebApiException | ParseException e) {
             System.out.println("Error: " + e.getMessage());
         }
-        response.sendRedirect("http://localhost:3000/api/home");
+        response.sendRedirect("http://localhost:3000/api/dashboard");
         return spotifyApi.getAccessToken();
     }
 }
