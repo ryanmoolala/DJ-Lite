@@ -16,6 +16,7 @@ public class TopArtistsService {
         .newBuilder()
         .uri(URI.create(url))
         .header("Authorization", "Bearer " + token)
+        .header("Accept-Charset", "UTF-8")
         .build();
 
     try {
