@@ -20,8 +20,6 @@ public class TopSongsService {
         .build();
     try {
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        System.out.println(response.body());
-
         return response.body();
     } catch (IOException | InterruptedException e) {
         e.printStackTrace();
