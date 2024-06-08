@@ -126,13 +126,36 @@ Please note that the code verifier value is stored locally using the localStorag
 
 5. Additional functionalities 
 
-    5.1 Establish Web socket connection for real time data 
+    5.1 real time data for song progress(DONE)
     5.2 Add Pause/Resume button functionality (DONE)
     5.3 Add play song option from song chart (DONE)
     5.4 Add animation (line animation) when song is playing ?
-    5.5 Top genres feature
+    5.5 Top genres OR Album feature 
     5.6 Login page animation (DONE)
+    5.7 Fix code verifier 
     
     Important functions
     5.5 Login function --> record down credentials etc.
-    5.6 Add refresh token system.
+    5.6 Add refresh token system. 
+
+
+
+
+
+    When interacting with the Spotify API (or any RESTful API) to send real-time requests, WebSocket or STOMP isn't typically the best choice. WebSocket and STOMP are more suited for real-time messaging and event-driven communication between a client and a server, rather than making RESTful API calls.
+
+For real-time updates from the Spotify API, you should check whether the Spotify API itself provides any real-time capabilities or streaming endpoints. If Spotify provides such capabilities, you should use them directly.
+
+However, if real-time updates aren't provided by the Spotify API, you'll typically use traditional HTTP requests (GET, POST, etc.) to fetch data from the API. You can use libraries like Axios, Fetch API, or any HTTP client in your programming language of choice to make these requests.
+
+If you need periodic updates from the Spotify API, you can use techniques like polling, where you make periodic requests to check for updates. Alternatively, you can consider using server-sent events (SSE) if the Spotify API supports them. SSE allows a server to push updates to the client over a single, long-lived HTTP connection.
+
+In summary:
+
+Use WebSocket or STOMP for real-time messaging and event-driven communication.
+Use traditional HTTP requests (GET, POST, etc.) for interacting with RESTful APIs like the Spotify API.
+Check if the Spotify API provides any real-time capabilities or streaming endpoints. If yes, use them directly. If not, use traditional HTTP requests and consider techniques like polling or server-sent events for periodic updates.
+
+
+
+
