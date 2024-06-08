@@ -9,6 +9,7 @@ import org.apache.commons.codec.binary.Base64;
 import java.util.logging.Logger;
 
 public class CodeChallenge {
+    
     //CODE VERIFIER
     // Generates a random string of characters up to a specified length (Recommended to be from 43 to 128)
     public static String generateCodeVerifier() {
