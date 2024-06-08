@@ -2,17 +2,16 @@ import React, { useEffect, useState } from "react";
 import Slider from "./Slider";
 import Button from "./Button";
 
-const Check = () => {
-  const [currentTime, setCurrentTime] = useState(0);
-  const [maxTime, setMaxTime] = useState(0);
-  const [currentTrack, setCurrentTrack] = useState("Nothing");
-  const [trackURL, setTrackURL] = useState();
-  const [isPlaying, setIsPlaying] = useState(false);
+const Check = (props) => {
+  const [currentTime, setCurrentTime] = useState(0); //POSITION
+  const [maxTime, setMaxTime] = useState(0); //DURATION
+  const [currentTrack, setCurrentTrack] = useState("Nothing"); //CURRENT SONG
+  const [isPlaying, setIsPlaying] = useState(false); //STATUS
 
   const [artistName, setArtistName] = useState("");
-  const [albumName, setAlbumName] = useState();
   const [image, setImage] = useState();
   const [imageURL, setImageURL] = useState();
+  const [trackURL, setTrackURL] = useState();
 
   useEffect(() => {
     fetch("/player/findSpotifyPlaying", {
@@ -23,14 +22,13 @@ const Check = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setCurrentTrack(data.item.name);
+
         setCurrentTime(Math.floor(data.progress_ms / 1000));
         setMaxTime(Math.floor(data.item.duration_ms / 1000));
         setIsPlaying(data.is_playing);
 
         setArtistName(data.item.artists[0].name);
-        setAlbumName(data.item.album.name);
         setImage(data.item.album.images[0].url);
         setImageURL(data.item.album.external_urls.spotify);
         setTrackURL(data.item.external_urls.spotify);
@@ -38,8 +36,58 @@ const Check = () => {
       .catch((error) => console.log(error));
   }, []);
 
+  const play = () => {
+    setIsPlaying((prev) => !prev);
+    getProgression();
+  };
+
+  const refreshButton = () => {
+    fetch("/player/findSpotifyPlaying", {
+      method: "GET",
+      headers: {
+        Accept: "application/json; charset=utf-8",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setCurrentTrack(data.item.name);
+
+        setCurrentTime(Math.floor(data.progress_ms / 1000));
+        setMaxTime(Math.floor(data.item.duration_ms / 1000));
+        setIsPlaying(data.is_playing);
+
+        setArtistName(data.item.artists[0].name);
+        setImage(data.item.album.images[0].url);
+        setImageURL(data.item.album.external_urls.spotify);
+        setTrackURL(data.item.external_urls.spotify);
+      })
+      .catch((error) => console.log(error));
+  };
+
+  const getProgression = () => {
+    fetch("/player/findSpotifyPlaying", {
+      method: "GET",
+      headers: {
+        Accept: "application/json; charset=utf-8",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setCurrentTrack(data.item.name);
+
+        setCurrentTime(Math.floor(data.progress_ms / 1000));
+        setMaxTime(Math.floor(data.item.duration_ms / 1000));
+
+        setArtistName(data.item.artists[0].name);
+        setImage(data.item.album.images[0].url);
+        setImageURL(data.item.album.external_urls.spotify);
+        setTrackURL(data.item.external_urls.spotify);
+      })
+      .catch((error) => console.log(error));
+  }
+
   return (
-    <div class="border min-w-full rounded-xl border-gray-200 h-24 flex items-center justify-center">
+    <div class=" min-w-full rounded-xl border-gray-200 h-24 flex items-center justify-center">
       <div class="mr-5 flex-shrink-0">
         <a href={imageURL} target="_blank">
           <img
@@ -59,12 +107,27 @@ const Check = () => {
         </div>
 
         <div>
-          <Slider currentTime={currentTime} maxTime={maxTime} />
+          <Slider
+            position={currentTime}
+            duration={maxTime}
+            isPlaying={isPlaying}
+            nextSong = {refreshButton}
+          />
         </div>
 
         <div>
-          <Button isPlaying={isPlaying} setIsPlaying={setIsPlaying} />
+          <Button isPlaying={isPlaying} play={play}/>
         </div>
+      </div>
+
+      <div class="absolute translate-x-96 border-black mr-16">
+        <button onClick={() => refreshButton()}>
+          <img
+            class="w-16 h-16 rounded-full cursor-default"
+            src="https://play-lh.googleusercontent.com/eN0IexSzxpUDMfFtm-OyM-nNs44Y74Q3k51bxAMhTvrTnuA4OGnTi_fodN4cl-XxDQc"
+          ></img>
+        </button>
+        <div>Refresh player!</div>
       </div>
     </div>
   );

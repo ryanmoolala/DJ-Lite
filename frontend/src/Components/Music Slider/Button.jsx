@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { IoIosPlay } from "react-icons/io";
 import { IoPauseSharp } from "react-icons/io5";
 
-const Button = ({ isPlaying, setIsPlaying }) => {
-  const [deviceID, setDeviceID] = useState('');
+const Button = ({ isPlaying, play }) => {
+  const [deviceID, setDeviceID] = useState("");
 
   useEffect(() => {
     fetch("/player/device", { method: "GET" })
@@ -13,14 +13,14 @@ const Button = ({ isPlaying, setIsPlaying }) => {
   });
 
   const pause = () => {
-    setIsPlaying(!isPlaying);
+    play();
     fetch(`/player/pause/${deviceID}`, { method: "PUT" }).catch((error) =>
       console.log(error)
     );
   };
 
   const resume = () => {
-    setIsPlaying(!isPlaying);
+    play();
     fetch(`/player/resume/${deviceID}`, { method: "PUT" }).catch((error) =>
       console.log(error)
     );
@@ -28,7 +28,9 @@ const Button = ({ isPlaying, setIsPlaying }) => {
 
   return (
     <div>
-      <button onClick={() => (isPlaying ? pause() : resume())}>
+      <button onClick={() => {
+        isPlaying ? pause() : resume()}
+        }>
         <div
           class={`${
             isPlaying ? "block" : "hidden"

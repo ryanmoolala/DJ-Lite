@@ -1,6 +1,6 @@
 import React from "react";
 
-const AlbumService = () => {
+const AlbumAnimationService = () => {
   return (
     <div>
       <div class="flex overflow-hidden">
@@ -577,4 +577,5 @@ const AlbumService = () => {
   );
 };
 
-export default AlbumService;
+export default AlbumAnimationService
+;

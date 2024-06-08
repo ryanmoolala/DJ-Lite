@@ -1,6 +1,6 @@
 import React from "react";
-import Artist from "./Artist";
-import Tracks from "./Tracks";
+import Artist from "./Lists/Artist";
+import Tracks from "./Lists/Tracks";
 
 const Body = () => {
   return (
