@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 @SpringBootApplication
 @RestController
 public class SpotifytoolApplication {
@@ -12,6 +13,7 @@ public class SpotifytoolApplication {
 		SpringApplication.run(SpotifytoolApplication.class, args);
 	}
 
+    //index page for backend
 	@GetMapping("/")
     public String hello() {
         return "Hello, Spring Boot!";
