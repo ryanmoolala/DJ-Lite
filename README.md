@@ -3,7 +3,7 @@ DJ Lite
 Background: 
 Summer break. I decided to build a web app that focuses on Spotify, that performs data analysis by making use of it's Developer API. Most of already exisitng projects out there use either Python or Javascript to serve the backend hence I thought it will be challenging to use Java instead. This project has served me well as it introduced new concepts related to full stack development which I aim to do in the future. 
 
-Some noteworthy things I have learnt are OAuth 2.0, Spring framework, session management and many more...
+Some noteworthy things I have learnt are OAuth 2.0, Java Spring, WebSocket, Session management and many more...
 ```Progression``` provides greater insight 
  
 Tech Stack:
@@ -19,7 +19,8 @@ Backend / Server
 - Spring MVC
 
 Others:
-- Docker
+- Docker / Docker Desktop
+- SocketIO 
   
 Resources:
 - [Spotify Web API](https://developer.spotify.com/documentation/web-api)
