@@ -31,31 +31,43 @@ Resources:
 - [Spotify Web API](https://developer.spotify.com/documentation/web-api)
 - [Authorization PKCE](https://developer.spotify.com/documentation/web-api/tutorials/code-pkce-flow)
   
-
-<br/>
-
 If you would like to try this application out Follow these steps.
 
 0. Ensure Java 21, Maven & React are all already installed before proceeding.
 
 1. Clone the repository
-   ``` git clone https://github.com/ryanmoolala/DJ-Lite.git ``` or  ```git clone git@github.com:ryanmoolala/DJ-Lite.git```
-2. Create A New App In [Spotify Developers Console](https://developer.spotify.com/dashboard) & Create app
-3. Set Redirect URL to [http://localhost:8080/callback](http://localhost:8080/api/callback)
-4. Copy the client-id generated for the above app along with redirect-uri and configure them in ```spotifytool/src/main/java/com/example/spotifytool/AuthorizationFlowPKCE/SpotifyDetails.java```
-5. Copy the Redirect URL above and paste it in the same file in Step 4.
-6. Open up your terminal and follow these commands:
-   ```cd spotifyclient```
-   ```mvn clean install```
-   ```mvn spring-boot:run```
+   ``` git clone https://github.com/ryanmoolala/DJ-Lite.git ``` or
+   ```bash
+    git clone git@github.com:ryanmoolala/DJ-Lite.git
+   ```
+3. Create A New App In [Spotify Developers Console](https://developer.spotify.com/dashboard) & Create app
+4. Set Redirect URL to [http://localhost:8080/callback](http://localhost:8080/api/callback)
+5. Copy the client-id generated for the above app along with redirect-uri and configure them in ```spotifytool/src/main/java/com/example/spotifytool/AuthorizationFlowPKCE/SpotifyDetails.java```
+6. Copy the Redirect URL above and paste it in the same file in Step 4.
+7. Open up your terminal and follow these commands:
+   ```bash
+   cd spotifyclient
+   ```
+   ```bash
+   mvn clean install
+   ```
+   ```bash
+   mvn spring-boot:run
+   ```
 
-7. Open another terminal window and follow these commands:
-   ```cd frontend```
-   ```npm install react-scripts```
-   ```npm start```
+8. Open another terminal window and follow these commands:
+   ```bash
+   cd frontend
+   ```
+   ```bash
+   npm install react-scripts
+   ```
+   ```bash
+   npm start
+   ```
 
-8. Remember that both terminals must be up and running (frontend & backend)
-9. Frontend runs on ```localhost:3000``` and Backend runs on ```localhost:8080```
+10. Remember that both terminals must be up and running (frontend & backend)
+11. Frontend runs on ```localhost:3000``` and Backend runs on ```localhost:8080```
 
 
 https://github.com/ryanmoolala/DJ-Lite/assets/121856093/0fc0cb4f-2582-4916-a6cf-a8249ecb0efc
