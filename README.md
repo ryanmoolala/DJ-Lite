@@ -11,6 +11,10 @@ Some noteworthy things I have learnt are
 - XSS, CRSF attacks
 - RESTful API calls, interacting with Spotify Web API & understanding its limitations
 - WebSockets & Long polling (Realised later on that Spotify Web API does not provide necessary endpoints)
+
+What I can improve on:
+- Software Engineering principles
+- Better reusability of code
    
 ```Progression``` provides greater insight 
  
