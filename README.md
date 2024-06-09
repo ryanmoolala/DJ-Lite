@@ -1,14 +1,16 @@
+https://github.com/ryanmoolala/DJ-Lite/assets/121856093/0fc0cb4f-2582-4916-a6cf-a8249ecb0efc
 
 Background: 
-Summer break. I decided to build a web app that focuses on Spotify, that performs data analysis by making use of it's Developer API. Most of already exisitng projects out there use either Python or Javascript to serve the backend hence I thought it will be challenging to use Java instead. This project has served me well as it introduced new concepts related to full stack development which I aim to do in the future. 
+Summer break. I decided to build a my very first web app that focuses on Spotify, that performs data analysis by making use of it's Developer API. Most of already exisitng projects out there use either Python or Javascript to serve the backend hence I thought it will be challenging to use Java instead. This project has served me well as it introduced new concepts related to full stack development which I aim to do in the future. 
 
 Some noteworthy things I have learnt are 
+- Fullstack development
 - OAuth 2.0
 - Java Spring Boot & Spring MVC
-- Session management
+- Jakarta HTTP Session management
 - XSS, CRSF attacks
 - RESTful API calls, interacting with Spotify Web API & understanding its limitations
-- WebSockets & Long polling (Spotify Web API does not provide necessary endpoints)
+- WebSockets & Long polling (Realised later on that Spotify Web API does not provide necessary endpoints)
    
 ```Progression``` provides greater insight 
  
@@ -31,6 +33,7 @@ Others:
 Resources:
 - [Spotify Web API](https://developer.spotify.com/documentation/web-api)
 - [Authorization PKCE](https://developer.spotify.com/documentation/web-api/tutorials/code-pkce-flow)
+- [Spotify Java Web API](https://github.com/spotify-web-api-java/spotify-web-api-java)
   
 If you would like to try this application out Follow these steps.
 
@@ -71,4 +74,3 @@ If you would like to try this application out Follow these steps.
 11. Frontend runs on ```localhost:3000``` and Backend runs on ```localhost:8080```
 
 
-https://github.com/ryanmoolala/DJ-Lite/assets/121856093/0fc0cb4f-2582-4916-a6cf-a8249ecb0efc
