@@ -12,8 +12,6 @@ public class SpotifytoolApplication {
     public static void main(String[] args) {
 		SpringApplication.run(SpotifytoolApplication.class, args);
 	}
-
-    //index page for backend
 	@GetMapping("/")
     public String hello() {
         return "Hello, Spring Boot!";

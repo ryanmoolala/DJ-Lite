@@ -8,9 +8,9 @@ services:
       - ./frontend:/user/src/app
     container_name: frontend
     depends_on:
-      - server
+      - spotifytool
 
-  server:
+  spotifytool:
     build: ./spotifytool
     ports:
       - "8080:8080"
