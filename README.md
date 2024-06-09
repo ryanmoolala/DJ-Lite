@@ -12,7 +12,8 @@ Some noteworthy things I have learnt are
    
 ```Progression``` provides greater insight 
  
-Tech Stack used:
+Tech Stack used: <br/>
+<br/>
 Frontend / Client
 - HTML
 - Tailwind CSS
