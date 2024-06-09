@@ -56,3 +56,6 @@ If you would like to try this application out Follow these steps.
 
 8. Remember that both terminals must be up and running (frontend & backend)
 9. Frontend runs on ```localhost:3000``` and Backend runs on ```localhost:8080```
+
+
+https://github.com/ryanmoolala/DJ-Lite/assets/121856093/0fc0cb4f-2582-4916-a6cf-a8249ecb0efc
