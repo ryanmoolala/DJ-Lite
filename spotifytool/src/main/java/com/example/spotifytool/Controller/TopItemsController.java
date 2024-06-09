@@ -23,7 +23,6 @@ public class TopItemsController {
     private String[] timeRange = new String[]{"short_term", "medium_term", "long_term"};
     private String artistData;
     private String trackData;
-    private String genreData;
 
 
     @GetMapping("/user-top-artist")   //gets top artists

@@ -34,9 +34,7 @@ public class TopGenresService {
     public static String foo(String topArtist) {
 
         TopGenresService instance = new TopGenresService();
-
-        System.out.println("getting genre data");
-
+        
         if (topArtist == null) {
             System.out.println("Invalid input: One or more parameters are null");
             return "";
