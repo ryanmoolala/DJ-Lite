@@ -153,6 +153,10 @@ const Artist = () => {
           data.items.slice(0, 4).map((x) => x.external_urls.spotify)
         );
       });
+      
+    return () => {
+      console.log("Component will unmount");
+    };
   }, []);
 
   const changeTimeScale = (timeId) => {

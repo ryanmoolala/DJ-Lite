@@ -58,7 +58,6 @@ const Tracks = () => {
               <button
                 onClick={() => {
                   playSong(`${track.track_number}`, `${track.album.id}`);
-                  
                 }}
               >
                 <IoHeadset class="size-4 " />
@@ -186,6 +185,9 @@ const Tracks = () => {
           data.items.slice(0, 4).map((x) => x.external_urls.spotify)
         );
       });
+    return () => {
+      console.log("Component will unmount");
+    };
   }, []);
 
   const adjustTime = (timeId) => {
@@ -208,7 +210,7 @@ const Tracks = () => {
   const chooseActiveButton = (number) => {
     setActive(number);
     adjustTime(number);
-  }
+  };
 
   return (
     <div>
@@ -222,10 +224,40 @@ const Tracks = () => {
         <div class="text-center">Your Tracks</div>
 
         <div class="flex justify-evenly mt-1 mb-1">
-          {activeButton == 0 ? (<button class="bg-green-100 w-20 border-2 rounded-2xl border-green-300" onClick={() => chooseActiveButton(0)}> 1 Month </button>) : (<button onClick={() => chooseActiveButton(0)}> 1 Month</button>)}
-          {activeButton == 1 ? (<button class="bg-green-100 w-20 border-2 rounded-2xl border-green-300" onClick={() => chooseActiveButton(1)}> 6 Months </button>) : (<button onClick={() => chooseActiveButton(1)}> 6 Months</button>)}
-          {activeButton == 2 ? (<button class="bg-green-100 w-20 border-2 rounded-2xl border-green-300" onClick={() => chooseActiveButton(2)}> All time </button>) : (<button onClick={() => chooseActiveButton(2)}> All time</button>)}
-        </div> 
+          {activeButton == 0 ? (
+            <button
+              class="bg-green-100 w-20 border-2 rounded-2xl border-green-300"
+              onClick={() => chooseActiveButton(0)}
+            >
+              {" "}
+              1 Month{" "}
+            </button>
+          ) : (
+            <button onClick={() => chooseActiveButton(0)}> 1 Month</button>
+          )}
+          {activeButton == 1 ? (
+            <button
+              class="bg-green-100 w-20 border-2 rounded-2xl border-green-300"
+              onClick={() => chooseActiveButton(1)}
+            >
+              {" "}
+              6 Months{" "}
+            </button>
+          ) : (
+            <button onClick={() => chooseActiveButton(1)}> 6 Months</button>
+          )}
+          {activeButton == 2 ? (
+            <button
+              class="bg-green-100 w-20 border-2 rounded-2xl border-green-300"
+              onClick={() => chooseActiveButton(2)}
+            >
+              {" "}
+              All time{" "}
+            </button>
+          ) : (
+            <button onClick={() => chooseActiveButton(2)}> All time</button>
+          )}
+        </div>
       </div>
 
       <table class="min-w-full divide-y divide-gray-400 border-2 mt-5">
@@ -243,7 +275,7 @@ const Tracks = () => {
               scope="col"
               class="py-3 text-xs font-medium w-80 tracking-wider text-center text-gray-500 uppercase md:px-6 bg-gray-50"
             >
-              Artist
+              Track
             </th>
             <th class="hidden bg-gray-50 md:table-cell"></th>
           </tr>

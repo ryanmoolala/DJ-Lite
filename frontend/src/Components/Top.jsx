@@ -35,7 +35,7 @@ const Top = (props) => {
     <div class="flex justify-center mt-10">
       <div class="ml-10 flex items-center w-1/2">
         <button class="absolute -translate-x-44" onClick={() => exitApp()}>
-          <TbLogout2 size="32px" />
+          <TbLogout2 size="32px" class="transition-transform duration-300 transform hover:scale-110" />
         </button>
 
         <button class="min-w-16 min-w-16" onClick={visitProfile}>

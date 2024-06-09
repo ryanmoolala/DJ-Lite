@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 
 import "./styles.css";
 import AlbumAnimationService from "./LoginAnimation/AlbumScroll";
+import { IoAlertCircleOutline } from "react-icons/io5";
+ 
 
 const IndexPage = () => {
 
@@ -16,7 +18,10 @@ const IndexPage = () => {
 
   return (
     <div>
-      <div class="absolute mt-4 ml-4"><p>Spotify must be active for this to work !</p></div>
+      <div class="absolute mt-4 ml-4 flex">
+        <p>Spotify must be active for this to work</p>
+        <IoAlertCircleOutline class="ml-3" size="24px"/>
+      </div>
       <div class="text text-center flex flex-col items-center h-screen">
         <div class="flex flex-col text-9xl w-1/2 font-bold h-1/2 justify-center overflow-hidden relative">
           <h1 class="">DJ Lite</h1>
