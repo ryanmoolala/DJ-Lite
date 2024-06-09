@@ -10,6 +10,8 @@ public class TopSongsService {
     private static String src = "https://api.spotify.com/v1/me/top/tracks";
 
     public static String foo(String token, String term, int limit) {
+        System.out.println("getting song data");
+        
         String url = String.format("%s?time_range=%s&limit=%d&offset=%d", src, term, limit, 0);
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest
