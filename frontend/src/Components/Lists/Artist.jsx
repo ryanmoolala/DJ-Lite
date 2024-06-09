@@ -4,8 +4,8 @@ import { TbBrandSpotify } from "react-icons/tb";
 const Artist = () => {
   const [arrayArtists, setArrayArtists] = useState([]);
   const [listState, setListState] = useState(true);
-  const [topFourItems, setFourItems] = useState([]);
-  const [topFourLinks, setFourLinks] = useState([]);
+  const [topSixImages, setSixImages] = useState([]);
+  const [topSixURL, setSixUrls] = useState([]);
 
   const [activeButton, setActive] = useState(0);
 
@@ -96,40 +96,60 @@ const Artist = () => {
   const renderTopImages = () => {
     return (
       <div class="flex justify-center">
-        <div class="ml-12 mr-12 grid grid-cols-2 gap-5 w-72 h-72">
+        <div class="ml-12 mr-12 grid grid-cols-3 gap-5 w-96 h-72">
           <div class="transition-transform duration-300 transform hover:scale-110">
-            <a href={topFourLinks[0]} target="_blank" class="cursor-default">
+            <a href={topSixURL[0]} target="_blank" class="cursor-default">
               <img
                 class="object-cover w-full h-full bg-cover rounded-xl bg-gray-50"
                 alt="1"
-                src={topFourItems[0]}
+                src={topSixImages[0]}
               ></img>
             </a>
           </div>
           <div class="transition-transform duration-300 transform hover:scale-110">
-            <a href={topFourLinks[1]} target="_blank" class="cursor-default">
+            <a href={topSixURL[1]} target="_blank" class="cursor-default">
               <img
                 class="object-cover w-full h-full bg-cover rounded-xl bg-gray-50 "
                 alt="2"
-                src={topFourItems[1]}
+                src={topSixImages[1]}
               ></img>
             </a>
           </div>
           <div class="transition-transform duration-300 transform hover:scale-110">
-            <a href={topFourLinks[2]} target="_blank" class="cursor-default">
+            <a href={topSixURL[2]} target="_blank" class="cursor-default">
               <img
                 class="object-cover w-full h-full bg-cover rounded-xl bg-gray-50"
                 alt="3"
-                src={topFourItems[2]}
+                src={topSixImages[2]}
               ></img>
             </a>
           </div>
           <div class="transition-transform duration-300 transform hover:scale-110">
-            <a href={topFourLinks[3]} target="_blank" class="cursor-default">
+            <a href={topSixURL[3]} target="_blank" class="cursor-default">
               <img
                 class="object-cover w-full h-full bg-cover rounded-xl bg-gray-50"
                 alt="4"
-                src={topFourItems[3]}
+                src={topSixImages[3]}
+              ></img>
+            </a>
+          </div>
+
+          <div class="transition-transform duration-300 transform hover:scale-110">
+            <a href={topSixURL[4]} target="_blank" class="cursor-default">
+              <img
+                class="object-cover w-full h-full bg-cover rounded-xl bg-gray-50"
+                alt="4"
+                src={topSixImages[4]}
+              ></img>
+            </a>
+          </div>
+
+          <div class="transition-transform duration-300 transform hover:scale-110">
+            <a href={topSixURL[5]} target="_blank" class="cursor-default">
+              <img
+                class="object-cover w-full h-full bg-cover rounded-xl bg-gray-50"
+                alt="4"
+                src={topSixImages[5]}
               ></img>
             </a>
           </div>
@@ -148,12 +168,10 @@ const Artist = () => {
       .then((response) => response.json())
       .then((data) => {
         setArrayArtists(data.items);
-        setFourItems(data.items.slice(0, 4).map((x) => x.images[0].url));
-        setFourLinks(
-          data.items.slice(0, 4).map((x) => x.external_urls.spotify)
-        );
+        setSixImages(data.items.slice(0, 6).map((x) => x.images[0].url));
+        setSixUrls(data.items.slice(0, 6).map((x) => x.external_urls.spotify));
       });
-      
+
     return () => {
       console.log("Component will unmount");
     };
@@ -170,10 +188,8 @@ const Artist = () => {
       .then((response) => response.json())
       .then((data) => {
         setArrayArtists(data.items);
-        setFourItems(data.items.slice(0, 4).map((x) => x.images[0].url));
-        setFourLinks(
-          data.items.slice(0, 4).map((x) => x.external_urls.spotify)
-        );
+        setSixImages(data.items.slice(0, 6).map((x) => x.images[0].url));
+        setSixUrls(data.items.slice(0, 6).map((x) => x.external_urls.spotify));
       });
   };
 
