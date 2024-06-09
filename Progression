@@ -1,5 +1,5 @@
-Start date: 13th May 2024
-End date: TBC
+Start date: 13th May 
+End date: 9th June 
 
 Reason for choosing JAVA:
 Just took CS2030S in NUS CS, I want to make use of my acquired knowledge
@@ -26,15 +26,13 @@ Consume Spotify's Rest API to show user's :
 
 Top played tracks of all time/past 6 months/past month
 Top played artists of all time/past 6 months/past month
-Show recently played tracks
-Saved albums
-Saved tracks
-Newest released tracks
-Featured playlists
+Top listened to genres of all time/past 6 months/past month
 Current playing track
-Searched tracks/playlist/artist lengths into a fixed-length output (hash value). cannot reverse hash
+Able to check out any artist / genre / track
 
-https://mkyong.com/java/java-sha-hashing-example/#:~:text=In%20Java
+Future additions:
+User statistics, AI generated recommendations, Recommended songs/artist/album 
+
 
 1. CodeChallenge, CodeVerify
 The hashing is a one-way compression function to convert inputs of different%2C%20we%20can%20use,digest(input)%3B
@@ -117,45 +115,13 @@ Please note that the code verifier value is stored locally using the localStorag
         Charts of Artists, Tracks, Genres (Short term, medium, long) (First 10 or 50, for genres only show 10)  3Components --> 3 Bigger components --> 1 Big Compoent (B)
 
 
-        OR 
-        
-        Show number data (KIV)
-
-
-        - Has Top section + Music player
-
 5. Additional functionalities 
 
-    5.1 real time data for song progress(DONE)
+    5.1 Real time data for song progress(DONE)
     5.2 Add Pause/Resume button functionality (DONE)
     5.3 Add play song option from song chart (DONE)
-    5.4 Add animation (line animation) when song is playing ?
-    5.5 Top genres OR Album feature 
-    5.6 Login page animation (DONE)
-    5.7 Fix code verifier 
-    
-    Important functions
-    5.5 Login function --> record down credentials etc.
-    5.6 Add refresh token system. 
-
-
-
-
-
-    When interacting with the Spotify API (or any RESTful API) to send real-time requests, WebSocket or STOMP isn't typically the best choice. WebSocket and STOMP are more suited for real-time messaging and event-driven communication between a client and a server, rather than making RESTful API calls.
-
-For real-time updates from the Spotify API, you should check whether the Spotify API itself provides any real-time capabilities or streaming endpoints. If Spotify provides such capabilities, you should use them directly.
-
-However, if real-time updates aren't provided by the Spotify API, you'll typically use traditional HTTP requests (GET, POST, etc.) to fetch data from the API. You can use libraries like Axios, Fetch API, or any HTTP client in your programming language of choice to make these requests.
-
-If you need periodic updates from the Spotify API, you can use techniques like polling, where you make periodic requests to check for updates. Alternatively, you can consider using server-sent events (SSE) if the Spotify API supports them. SSE allows a server to push updates to the client over a single, long-lived HTTP connection.
-
-In summary:
-
-Use WebSocket or STOMP for real-time messaging and event-driven communication.
-Use traditional HTTP requests (GET, POST, etc.) for interacting with RESTful APIs like the Spotify API.
-Check if the Spotify API provides any real-time capabilities or streaming endpoints. If yes, use them directly. If not, use traditional HTTP requests and consider techniques like polling or server-sent events for periodic updates.
-
+    5.4 Top genres OR Album feature (DONE)
+    5.5 Login page animation (DONE)  
 
 
 
