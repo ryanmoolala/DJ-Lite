@@ -8,7 +8,7 @@ Some noteworthy things I have learnt are
 - Session management
 - XSS, CRSF attacks
 - RESTful API calls, interacting with Spotify Web API & understanding its limitations
-- WebSockets & Long polling
+- WebSockets & Long polling (Spotify Web API does not provide necessary endpoints)
    
 ```Progression``` provides greater insight 
  
