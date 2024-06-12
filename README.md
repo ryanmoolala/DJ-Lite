@@ -9,7 +9,7 @@ https://github.com/ryanmoolala/DJ-Lite/assets/121856093/0fc0cb4f-2582-4916-a6cf-
 
 Some noteworthy things I have learnt are 
 - Fullstack development
-- OAuth 2.0
+- OAuth 2.0, Auth PKCE Flow
 - Java Spring Boot & Spring MVC
 - Jakarta HTTP Session management
 - XSS, CRSF attacks
